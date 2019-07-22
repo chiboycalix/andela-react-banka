@@ -1,1 +1,2 @@
 # andela-react-banka
+[![Build Status](https://travis-ci.org/chiboycalix/andela-react-banka.svg?branch=develop)](https://travis-ci.org/chiboycalix/andela-react-banka)[![Coverage Status](https://coveralls.io/repos/github/chiboycalix/andela-react-banka/badge.svg?branch=develop)](https://coveralls.io/github/chiboycalix/andela-react-banka?branch=develop)
