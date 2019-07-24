@@ -9,7 +9,7 @@
     "lint:fix": "prettier-eslint '**/*.js' --write",
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coveralls": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -62,8 +62,9 @@
       "enzyme-to-json/serializer"
     ]
   },
-  "setupFiles": ["./src/setupTests.js"],
-
+  "setupFiles": [
+    "./src/setupTests.js"
+  ],
   "nyc": {
     "require": [
       "@babel/register"
