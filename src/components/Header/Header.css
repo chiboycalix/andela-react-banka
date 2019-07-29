@@ -1,0 +1,33 @@
+.header{
+    color: #fff;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.header h1{
+    font-size: 40px;
+    font-weight: bold;
+}
+.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.header ul li {
+    float: left;
+}
+.header ul li a{
+    color: #fff;
+    display: block;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: 900;
+}
+.signup, .signin{
+    background: #fff;
+    margin-left: 20px;
+    color: #2b709a !important;
+    border-radius: 5px;
+}
