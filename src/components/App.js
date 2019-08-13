@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
-import Wrapper from './Wrapper/Wrapper';
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div className='main'>
-        <Wrapper />
-      </div>
+      <BrowserRouter>
+        <div>
+          <h1>Banka app</h1>
+        </div>
+      </BrowserRouter>
     );
   }
 }
