@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { withRouter, Link } from 'react-router-dom';
 
-const LeftSideBar = () => (
+class LeftSideBar extends Component {
+  routeChange = () => {
+    this.props.history.push('/dashboard');
+  }
+
+  render() {
+    return (
         <div>
             <h1 className="indigo-text darken-4">Mobile Payment</h1>
             <p>It is a long established fact that a reader will be distracted by the
@@ -8,11 +15,14 @@ const LeftSideBar = () => (
                 using Lorem Ipsum is that
              </p>
              <br />
-             <button className="btn waves-effect waves-light orange darken-3
-                    "type="submit" name="action">
-                 Get Started <i className="material-icons right">send</i>
-            </button>
+             <Link to="dashboard" className="btn waves-effect waves-light orange darken-3"
+                     >
+                    Get Started
+                    <i className="material-icons right">send</i>
+            </Link>
         </div>
-);
+    );
+  }
+}
 
-export default LeftSideBar;
+export default withRouter(LeftSideBar);
