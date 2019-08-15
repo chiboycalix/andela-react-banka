@@ -1,6 +1,16 @@
+const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
+const CLT_DIR = path.resolve(__dirname, 'client');
+const SRC_DIR = path.resolve(__dirname, 'src');
+
 module.exports = {
+  entry: `${SRC_DIR}/index.js`,
+  output: {
+    path: `${CLT_DIR}/app`,
+    filename: 'bundle.js',
+    publicPath: '/',
+  },
   module: {
     rules: [
       {
@@ -43,4 +53,7 @@ module.exports = {
       filename: './index.html',
     }),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
 };
