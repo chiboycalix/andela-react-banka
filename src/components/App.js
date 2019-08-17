@@ -6,6 +6,7 @@ import Dashboard from './dashboard/Dashboard';
 import AccountDetails from './accounts/AccountDetails';
 import SignIn from './auth/SignIn';
 import SignUp from './auth/Signup';
+import CreateAccounts from './accounts/CreateAccounts';
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route path="/signup" component={SignUp}/>
             <Route path="/login" component={SignIn}/>
             <Route path="/logout" component={HomePage}/>
+            <Route path="/account" component={CreateAccounts}/>
           </Switch>
         </div>
       </BrowserRouter>
