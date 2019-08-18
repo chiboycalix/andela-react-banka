@@ -1,0 +1,22 @@
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  /* font-family: 'Lato', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
+  background: rgb(235, 235, 235);
+}
+form {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 100px;
+  padding: 20px;
+}
+form button {
+  margin: 10px 0;
+}
+input[type=text]:not(.browser-default):focus:not([readOnly]) {
+  border-color: orange;
+  box-shadow: none;
+}

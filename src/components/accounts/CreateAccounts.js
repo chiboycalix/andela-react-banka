@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './createAccount.css';
 
 class CreateAccount extends Component {
     state = {
