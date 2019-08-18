@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './signin.css';
 
 class SignIn extends Component {
     state = {

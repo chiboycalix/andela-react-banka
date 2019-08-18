@@ -5,6 +5,8 @@ const CLT_DIR = path.resolve(__dirname, 'client');
 const SRC_DIR = path.resolve(__dirname, 'src');
 
 module.exports = {
+  mode: 'development',
+  devtool: 'inline-source-map',
   entry: `${SRC_DIR}/index.js`,
   output: {
     path: `${CLT_DIR}/app`,
