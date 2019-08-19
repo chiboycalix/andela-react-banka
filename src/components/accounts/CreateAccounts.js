@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createAccount } from '../store/actions/accountActions';
 
 class CreateAccount extends Component {
     state = {
@@ -13,7 +15,8 @@ class CreateAccount extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state);
+        // console.log(this.state);
+        this.props.createAccount(this.state)
     }
     render() {
         return (
@@ -37,4 +40,10 @@ class CreateAccount extends Component {
     }
 }
 
-export default CreateAccount;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createAccount: (account) => dispatch(createAccount(account))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CreateAccount);

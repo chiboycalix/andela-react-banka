@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable arrow-body-style */
+
 const initState = {
   accounts: [
     {
@@ -29,6 +28,10 @@ const initState = {
   ],
 };
 const accountReducer = (state = initState, action) => {
+  switch (action.type) {
+    case 'CREATE_ACCOUNT':
+      console.log('account created', action.account);
+  }
   return state;
 };
 
