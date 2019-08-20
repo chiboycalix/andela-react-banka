@@ -7,7 +7,16 @@ const SRC_DIR = path.resolve(__dirname, 'src');
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
-  entry: `${SRC_DIR}/index.js`,
+  entry: [
+    `${SRC_DIR}/index.js`,
+    '@babel/polyfill',
+  ],
+  devServer: {
+    historyApiFallback: true,
+    host: '0.0.0.0',
+    compress: true,
+    port: 8082,
+  },
   output: {
     path: `${CLT_DIR}/app`,
     filename: 'bundle.js',
@@ -55,7 +64,4 @@ module.exports = {
       filename: './index.html',
     }),
   ],
-  devServer: {
-    historyApiFallback: true,
-  },
 };

@@ -1,21 +1,37 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { creatUser } from '../store/actions/authActions';
 
 class SignUp extends Component {
     state = {
+        firstName: '',
+        lastName: '',
         email: '',
-        password: '',
-        firstname: '',
-        lastname: ''
+        password: ''
     }
-    handleChange = (e) => {
+
+    handleChange = (event) => {
         this.setState({
-            [e.target.id]: e.target.value
+            [event.target.id]: event.target.value
         })
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(this.state);
+    handleSubmit = (event) => {
+        event.preventDefault()
+        const { firstName, lastName, email, password } = this.state
+        this.props.creatUser({
+            firstName,
+            lastName,
+            email,
+            password
+        }).then(res => {
+            if (res === 201) {
+                console.log(res)
+            } else {
+                console.log(res)
+            }
+        })
+
     }
     render() {
         return (
@@ -24,11 +40,11 @@ class SignUp extends Component {
                     <h5 className="grey-text text-darken-3">Sign Up</h5>
                     <div className="input-field">
                         <label htmlFor="firstname">Firstname</label>
-                        <input type="text" id="firstname" onChange={this.handleChange}/>
+                        <input type="text" id="firstName" onChange={this.handleChange}/>
                     </div>
                     <div className="input-field">
                         <label htmlFor="lastname">Lastname</label>
-                        <input type="text" id="lastname" onChange={this.handleChange}/>
+                        <input type="text" id="lastName" onChange={this.handleChange}/>
                     </div>
                     <div className="input-field">
                         <label htmlFor="email">Email</label>
@@ -47,4 +63,12 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+const mapStateToProps = state => ({
+    auth: state.auth,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    creatUser: (userObject) => dispatch(creatUser(userObject)),
+});
+
+export default connect(mapStateToProps,  mapDispatchToProps)(SignUp);
