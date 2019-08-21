@@ -1,7 +1,6 @@
 import React from 'react';
 
 const AccountSummary = ({ account }) => {
-  console.log(account.id);
   return (
         <div className="card z-depth-0 grey-text darken-4">
             <div className="card-content">

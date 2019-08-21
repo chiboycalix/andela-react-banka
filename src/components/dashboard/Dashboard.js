@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 import Notifications from './Notifications';
 import './Dashboard.css';
 import AccountList from '../accounts/AccountList';

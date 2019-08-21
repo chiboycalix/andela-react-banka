@@ -1,21 +1,38 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { PulseLoader } from 'react-spinners';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { loginUser } from '../store/actions/signInActions';
+import './Signin.css';
 
 class SignIn extends Component {
     state = {
         email: '',
         password: ''
     }
-    handleChange = (e) => {
+
+    handleChange = (event) => {
         this.setState({
-            [e.target.id]: e.target.value
+            [event.target.id]: event.target.value
         })
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(this.state);
+    handleSubmit = async (event) => {
+        event.preventDefault()
+        const { email, password } = this.state;
+        const response = await this.props.loginUser({ email, password })
+        if (response.type === 'LOGIN_USER_SUCCESS') {
+            localStorage.setItem('token', response.payload.token)
+            this.props.history.push('/dashboard')
+            toast.success(`${response.payload.email} logged in successfully`,{toastId: 1 });
+        }
+        if (response.type === 'LOGIN_USER_FAILURE') {
+            toast.error(`${response.error.error}`,{toastId: 1, className: 'toastCss'});
+        }
     }
     render() {
+        const { auth } = this.props
         return (
             <div className="container">
                 <form onSubmit={this.handleSubmit} className="white signin-form" autoComplete="off">
@@ -29,7 +46,16 @@ class SignIn extends Component {
                         <input type="text" id="password" onChange={this.handleChange}/>
                     </div>
                     <div className="input-field">
-                        <button className="btn orange darken-3 z-depth-0">Login</button>
+                        <button className="btn orange darken-3 z-depth-0">
+                        {
+                            auth.isLoading
+                            ?
+                            <PulseLoader sizeUnit={"px"} size={10} color={'#ffffff'}
+                            loading={auth.isLoading}/>
+                            :
+                            'Login'
+                        }
+                        </button>
                     </div>
                 </form>
             </div>
@@ -37,4 +63,12 @@ class SignIn extends Component {
     }
 }
 
-export default SignIn;
+const mapStateToProps = state => ({
+    auth: state.signin
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    loginUser: (userObject) => dispatch(loginUser(userObject))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
