@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Navbar from './layout/Navbar';
 import HomePage from './homepage/HomePage';
 import Dashboard from './dashboard/Dashboard';
@@ -13,6 +14,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
+          <ToastContainer autoClose={2500}/>
           <Navbar />
           <Switch>
             <Route exact path="/" component={HomePage}/>

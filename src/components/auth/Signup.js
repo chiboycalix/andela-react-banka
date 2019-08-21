@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { creatUser } from '../store/actions/authActions';
+import {  toast } from 'react-toastify';
+import { creatUser } from '../store/actions/signUpActions';
+import 'react-toastify/dist/ReactToastify.css';
+import './Signup.css';
 
 class SignUp extends Component {
     state = {
@@ -16,22 +19,22 @@ class SignUp extends Component {
         })
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault()
         const { firstName, lastName, email, password } = this.state
-        this.props.creatUser({
+        const response = await this.props.creatUser({
             firstName,
             lastName,
             email,
             password
-        }).then(res => {
-            if (res === 201) {
-                console.log(res)
-            } else {
-                console.log(res)
-            }
         })
-
+        if (response.type === 'CREATE_USER_SUCCESS') {
+            localStorage.setItem('token', response.payload.token)
+            toast.success(`${response.payload.email} registered successfully`,{ toastId: 1});
+        }
+        if (response.type === 'CREATE_USER_FAILURE') {
+            toast.error(`${response.error.error}`,{toastId: 1, className: 'toastCss'});
+        }
     }
     render() {
         return (
@@ -64,7 +67,7 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth,
+    auth: state.signup,
 });
 
 const mapDispatchToProps = (dispatch) => ({

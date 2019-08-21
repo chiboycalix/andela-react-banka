@@ -1,25 +1,25 @@
-import { CREATE_USER_START, CREATE_USER_SUCCESS, CREATE_USER_FAILURE } from '../actions/types';
-
+import { LOGIN_USER_START, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } from '../actions/types';
 
 const initState = {
   user: null,
-  error: null,
   isLoading: false,
+  error: null,
 };
-const authReducer = (state = initState, action) => {
+
+const signinReducer = (state = initState, action) => {
   switch (action.type) {
-    case CREATE_USER_START:
+    case LOGIN_USER_START:
       return {
         ...state,
         isLoading: true,
       };
-    case CREATE_USER_SUCCESS:
+    case LOGIN_USER_SUCCESS:
       return {
         ...state,
         user: action.payload,
         isLoading: false,
       };
-    case CREATE_USER_FAILURE:
+    case LOGIN_USER_FAILURE:
       return {
         ...state,
         isLoading: false,
@@ -30,5 +30,4 @@ const authReducer = (state = initState, action) => {
   }
 };
 
-
-export default authReducer;
+export default signinReducer;

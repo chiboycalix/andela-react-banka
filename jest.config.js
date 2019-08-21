@@ -5,4 +5,5 @@ module.exports = {
     '.+\\.(css|styl|less|sass|scss)$': 'jest-transform-css',
     '^.+\\.svg$': 'jest-svg-transformer',
   },
+  transformIgnorePatterns: ['../../node_modules/(?!)'],
 };
