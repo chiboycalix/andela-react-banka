@@ -1,0 +1,14 @@
+.card-content{
+  font-family: 'source code pro';
+}
+.row .top{
+  margin-top: -2px;
+}
+.btn{
+ margin-left: 20px;
+ border-radius: 5px;
+}
+h5{
+  font-weight: bold;
+  color: black;
+}

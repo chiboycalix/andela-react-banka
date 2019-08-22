@@ -6,7 +6,6 @@ class Notifications extends Component {
     return (
         <div>
             <div>
-                <img src="/"className="circle responsive-img owner-img"/>
             </div>
             <br />
             <div className="col s12">

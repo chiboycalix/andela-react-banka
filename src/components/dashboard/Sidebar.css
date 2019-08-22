@@ -1,0 +1,14 @@
+.sidebar{
+  background: #fff;
+  width: 100px;
+  position: absolute;
+  padding-top: 80px;
+  height: 100%;
+}
+p.nono{
+  margin-top: -7px;
+  margin-left: -6px;
+}
+li{
+  padding-top: 17px;
+}
