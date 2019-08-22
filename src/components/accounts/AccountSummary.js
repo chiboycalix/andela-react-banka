@@ -8,18 +8,20 @@ class AccountSummary extends Component {
     handleCollapse = (e) => {
         this.setState({open: !this.state.open})
     }
+
   render() {
+      const { accountnumber, balance, type, email } = this.props.account;
     return (
             <div className="card z-depth-0 grey-text darken-4">
                 <div className="card-content">
                     <div className="row top">
                         <div className="col s4">
                             <p>Account number</p>
-                            <h5>090 564 7884 </h5>
+                            <h5>{accountnumber}</h5>
                         </div>
                         <div className="col s4">
                             <p>Available Balance</p>
-                            <h5>$50, 000, 909</h5>
+                            <h5>${balance}</h5>
                         </div>
                         <div className="col s4">
                         <button className="waves-effect white black-text btn">Statement</button>
@@ -40,8 +42,8 @@ class AccountSummary extends Component {
                             <p>Currency: USD</p>
                         </div>
                         <div className="col s4">
-                            <p>Bank statement: Downloadable from bank system</p>
-                            <p>Account Type: savings</p>
+                            <p>Account Email: {email}</p>
+                            <p>Account Type: {type}</p>
                         </div>
                     </div>
                     )

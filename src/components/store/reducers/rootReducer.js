@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux';
 import signUpReducer from './signUpReducer';
-import accountReducer from './accountReducer';
+import createAccountReducer from './createAccountReducer';
+import getAccountReducer from './getAccountReducer';
 import signinReducer from './signInReducer';
 
 
 const rootReducer = combineReducers({
   signup: signUpReducer,
   signin: signinReducer,
-  account: accountReducer,
+  create: createAccountReducer,
+  getaccount: getAccountReducer,
 });
 
 export default rootReducer;

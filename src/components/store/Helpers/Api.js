@@ -15,3 +15,9 @@ export const postAccountUrl = () => {
   const url = `${baseUrl}/accounts`;
   return url;
 };
+
+export const getAccountUrl = () => {
+  const email = localStorage.getItem('email');
+  const url = `${baseUrl}/user/${email}/accounts`;
+  return url;
+};

@@ -1,24 +1,24 @@
-import { CREATE_ACCOUNT_START, CREATE_ACCOUNT_SUCCESS, CREATE_ACCOUNT_FAILURE } from '../actions/types';
+import * as types from '../actions/types';
 
 const initState = {
   isLoading: false,
   account: null,
   error: null,
 };
-const accountReducer = (state = initState, action) => {
+const createAccountReducer = (state = initState, action) => {
   switch (action.type) {
-    case CREATE_ACCOUNT_START:
+    case types.CREATE_ACCOUNT_START:
       return {
         ...state,
         isLoading: true,
       };
-    case CREATE_ACCOUNT_SUCCESS:
+    case types.CREATE_ACCOUNT_SUCCESS:
       return {
         ...state,
         account: action.payload,
         isLoading: false,
       };
-    case CREATE_ACCOUNT_FAILURE:
+    case types.CREATE_ACCOUNT_FAILURE:
       return {
         ...state,
         isLoading: false,
@@ -29,4 +29,4 @@ const accountReducer = (state = initState, action) => {
   }
 };
 
-export default accountReducer;
+export default createAccountReducer;

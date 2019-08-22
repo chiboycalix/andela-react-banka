@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { PulseLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { loginUser } from '../store/actions/signInActions';
+import { loginUser } from '../store/actions/signInAction';
 import './Signin.css';
 
 class SignIn extends Component {
@@ -24,6 +24,7 @@ class SignIn extends Component {
         const response = await this.props.loginUser({ email, password })
         if (response.type === 'LOGIN_USER_SUCCESS') {
             localStorage.setItem('token', response.payload.token)
+            localStorage.setItem('email', response.payload.email)
             this.props.history.push('/dashboard')
             toast.success(`${response.payload.email} logged in successfully`,{toastId: 1 });
         }

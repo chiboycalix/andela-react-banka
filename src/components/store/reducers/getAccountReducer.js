@@ -1,34 +1,33 @@
 import * as types from '../actions/types';
 
-
 const initState = {
-  user: null,
-  error: null,
   isLoading: false,
+  error: null,
+  accounts: null,
 };
-const signupReducer = (state = initState, action) => {
+
+const getAccountReducer = (state = initState, action) => {
   switch (action.type) {
-    case types.CREATE_USER_START:
+    case types.GET_ACCOUNT_START:
       return {
         ...state,
         isLoading: true,
       };
-    case types.CREATE_USER_SUCCESS:
+    case types.GET_ACCOUNT_SUCCESS:
       return {
         ...state,
-        user: action.payload,
+        accounts: action.payload,
         isLoading: false,
       };
-    case types.CREATE_USER_FAILURE:
+    case types.GET_ACCOUNT_FAILURE:
       return {
         ...state,
-        isLoading: false,
         error: action.error,
+        isLoading: false,
       };
     default:
       return state;
   }
 };
 
-
-export default signupReducer;
+export default getAccountReducer;
