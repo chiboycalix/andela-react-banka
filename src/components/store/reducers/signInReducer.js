@@ -1,4 +1,4 @@
-import { LOGIN_USER_START, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } from '../actions/types';
+import * as types from '../actions/types';
 
 const initState = {
   user: null,
@@ -8,18 +8,18 @@ const initState = {
 
 const signinReducer = (state = initState, action) => {
   switch (action.type) {
-    case LOGIN_USER_START:
+    case types.LOGIN_USER_START:
       return {
         ...state,
         isLoading: true,
       };
-    case LOGIN_USER_SUCCESS:
+    case types.LOGIN_USER_SUCCESS:
       return {
         ...state,
         user: action.payload,
         isLoading: false,
       };
-    case LOGIN_USER_FAILURE:
+    case types.LOGIN_USER_FAILURE:
       return {
         ...state,
         isLoading: false,

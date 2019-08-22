@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { PulseLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { createAccount } from '../store/actions/accountActions';
+import { createAccount } from '../store/actions/createAccountAction';
 
 class CreateAccount extends Component {
     state = {
@@ -67,7 +67,7 @@ class CreateAccount extends Component {
 }
 
 const mapStateToProps = state => ({
-    account: state.account
+    account: state.create
 })
 
 const mapDispatchToProps = (dispatch) => {

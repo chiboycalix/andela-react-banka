@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
 import Notifications from './Notifications';
 import './Dashboard.css';
 import AccountList from '../accounts/AccountList';
@@ -27,7 +26,7 @@ class Dashboard extends Component {
                     </ul>
                   </div>
                 </nav>
-        <AccountList accounts={this.props.accounts}/>
+        <AccountList />
   </div>
     <div className="col s12 m3 notifs">
         <Notifications />
@@ -40,7 +39,7 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    accounts: state.account.accounts,
+    accounts: state.create.accounts,
   };
 };
 export default connect(mapStateToProps)(Dashboard);

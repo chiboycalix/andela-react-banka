@@ -1,6 +1,6 @@
 import * as types from './types';
 import { signupUrl } from '../Helpers/Api';
-import { axiosInstance } from '../Helpers/Axios';
+import { axiosPostInstance } from '../Helpers/Axios';
 
 export const createUserStart = () => {
   return {
@@ -25,7 +25,7 @@ export const createUserFailure = (error) => {
 export const creatUser = payload => async (dispatch) => {
   dispatch(createUserStart());
   try {
-    const response = await axiosInstance(signupUrl(), payload);
+    const response = await axiosPostInstance(signupUrl(), payload);
     return dispatch(createUserSuccess(response.data.data));
   } catch (error) {
     return dispatch(createUserFailure(error.response.data));
