@@ -5,11 +5,13 @@ import LeftSideBar from './LeftSideBar';
 
 const HomePage = () => (
         <div className="container row">
+            <div className="inner">
              <div className="col s12 m5">
                  <LeftSideBar />
             </div>
              <div className="col s12 m6">
                  <Illustrator />
+            </div>
             </div>
         </div>
 );

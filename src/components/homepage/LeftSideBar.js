@@ -18,7 +18,6 @@ class LeftSideBar extends Component {
              <Link to="dashboard" className="btn waves-effect waves-light orange darken-3"
                      >
                     Get Started
-                    <i className="material-icons right">send</i>
             </Link>
         </div>
     );

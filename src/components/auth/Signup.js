@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {  toast } from 'react-toastify';
+import { PulseLoader } from 'react-spinners';
 import { creatUser } from '../store/actions/signUpActions';
 import 'react-toastify/dist/ReactToastify.css';
 import './Signup.css';
@@ -30,6 +31,7 @@ class SignUp extends Component {
         })
         if (response.type === 'CREATE_USER_SUCCESS') {
             localStorage.setItem('token', response.payload.token)
+            this.props.history.push('/dashboard')
             toast.success(`${response.payload.email} registered successfully`,{ toastId: 1});
         }
         if (response.type === 'CREATE_USER_FAILURE') {
@@ -37,6 +39,7 @@ class SignUp extends Component {
         }
     }
     render() {
+        const { auth } = this.props
         return (
             <div className="container">
                 <form onSubmit={this.handleSubmit} className="white signup-form" autoComplete="off">
@@ -58,7 +61,16 @@ class SignUp extends Component {
                         <input type="text" id="password" onChange={this.handleChange}/>
                     </div>
                     <div className="input-field">
-                        <button className="btn orange darken-3 z-depth-0">Signup</button>
+                        <button className="btn orange darken-3 z-depth-0">
+                        {
+                            auth.isLoading
+                            ?
+                            <PulseLoader sizeUnit={"px"} size={10} color={'#ffffff'}
+                            loading={auth.isLoading}/>
+                            :
+                            'Signup'
+                        }
+                        </button>
                     </div>
                 </form>
             </div>
