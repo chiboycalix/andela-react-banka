@@ -30,8 +30,8 @@ class SignUp extends Component {
             password
         })
         if (response.type === 'CREATE_USER_SUCCESS') {
-            localStorage.setItem('token', response.payload.token)
             this.props.history.push('/dashboard')
+            localStorage.setItem('user', JSON.stringify(response.payload))
             toast.success(`${response.payload.email} registered successfully`,{ toastId: 1});
         }
         if (response.type === 'CREATE_USER_FAILURE') {
