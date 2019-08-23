@@ -8,6 +8,7 @@ import AccountDetails from './accounts/AccountDetails';
 import SignIn from './auth/SignIn';
 import SignUp from './auth/Signup';
 import CreateAccounts from './accounts/CreateAccounts';
+import ProtectedRoute from './ProtectedRoute';
 
 class App extends Component {
   render() {
@@ -18,12 +19,13 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={HomePage}/>
-            <Route path="/account/:id" component={AccountDetails}/>
-            <Route path="/dashboard" component={Dashboard}/>
+            <ProtectedRoute path="/account/:id" component={AccountDetails}/>
+            <ProtectedRoute path="/dashboard" component={Dashboard}/>
+            <ProtectedRoute path="/account" component={CreateAccounts}/>
             <Route path="/signup" component={SignUp}/>
             <Route path="/login" component={SignIn}/>
             <Route path="/logout" component={HomePage}/>
-            <Route path="/account" component={CreateAccounts}/>
+            <Route path="*" component={() => "404 not found"}/>
           </Switch>
         </div>
       </BrowserRouter>

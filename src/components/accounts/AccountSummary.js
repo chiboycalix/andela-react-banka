@@ -24,8 +24,8 @@ class AccountSummary extends Component {
                             <h5>${balance}</h5>
                         </div>
                         <div className="col s4">
-                        <button className="waves-effect white black-text btn">Statement</button>
-                        <button className="waves-effect orange darken-3 btn" onClick={this.handleCollapse}>Details</button>
+                            <button className="waves-effect white black-text btn">Statement</button>
+                            <button className="waves-effect orange darken-3 btn" onClick={this.handleCollapse}>Details</button>
                         </div>
                     </div>
                     <hr />
@@ -50,7 +50,6 @@ class AccountSummary extends Component {
                         :
                     null
                     }
-
                 </div>
             </div>
     );

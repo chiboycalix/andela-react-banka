@@ -27,7 +27,7 @@ class Dashboard extends Component {
                   </div>
                 </nav>
         <AccountList />
-  </div>
+      </div>
     <div className="col s12 m3 notifs">
         <Notifications />
     </div>

@@ -33,7 +33,6 @@ class CreateAccount extends Component {
     }
     render() {
         const { account } = this.props
-
         return (
             <div className="container">
                 <form onSubmit={this.handleSubmit} className="white create-account-form">
@@ -44,8 +43,8 @@ class CreateAccount extends Component {
                     </div>
 
                     <div className="input-field">
-                    <label htmlFor="balance">Type</label>
-                    <input type="text" id="type" onChange={this.handleChange}/>
+                        <label htmlFor="balance">Type</label>
+                        <input type="text" id="type" onChange={this.handleChange}/>
                     </div>
 
                     <div className="input-field">
