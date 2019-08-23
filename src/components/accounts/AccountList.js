@@ -17,16 +17,15 @@ class AccountList extends Component {
     })
   }
 
-
   render() {
     return (
       <div className="section">
-            { this.state.accounts && this.state.accounts.map((account) => {
-              return (
-                <AccountSummary account={account} key={account.id}/>
-              );
-              })
-            }
+        { this.state.accounts && this.state.accounts.map((account) => {
+          return (
+            <AccountSummary account={account} key={account.id}/>
+          );
+          })
+        }
       </div>
     );
   }

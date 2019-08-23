@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { PulseLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { loginUser } from '../store/actions/signInAction';
+import { loginUser } from '../store/actions/authAction';
 import './Signin.css';
 
 class SignIn extends Component {
@@ -33,7 +33,7 @@ class SignIn extends Component {
         }
     }
     render() {
-        const { auth } = this.props
+        const { userauth } = this.props
         return (
             <div className="container">
                 <form onSubmit={this.handleSubmit} className="white signin-form" autoComplete="off">
@@ -49,10 +49,10 @@ class SignIn extends Component {
                     <div className="input-field">
                         <button className="btn orange darken-3 z-depth-0">
                         {
-                            auth.isLoading
+                            userauth.isLoading
                             ?
                             <PulseLoader sizeUnit={"px"} size={10} color={'#ffffff'}
-                            loading={auth.isLoading}/>
+                            loading={userauth.isLoading}/>
                             :
                             'Login'
                         }
@@ -65,7 +65,7 @@ class SignIn extends Component {
 }
 
 const mapStateToProps = state => ({
-    auth: state.signin
+    userauth: state.auth
 })
 
 const mapDispatchToProps = (dispatch) => ({

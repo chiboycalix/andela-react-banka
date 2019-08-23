@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {  toast } from 'react-toastify';
 import { PulseLoader } from 'react-spinners';
-import { creatUser } from '../store/actions/signUpActions';
+import { creatUser } from '../store/actions/authAction';
 import 'react-toastify/dist/ReactToastify.css';
 import './Signup.css';
 
@@ -79,7 +79,7 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = state => ({
-    auth: state.signup,
+    auth: state.auth,
 });
 
 const mapDispatchToProps = (dispatch) => ({
