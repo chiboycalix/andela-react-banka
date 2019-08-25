@@ -13,6 +13,7 @@ export default function Sidebar() {
             <p className={'center-align nono'}>{'Dashboard'}</p>
           </Link>
         </li>
+
         <li>
           <Link to="/account" className="black-text">
             <Icons className={'icon ion-md-card center-align'}></Icons>

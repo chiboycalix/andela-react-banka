@@ -7,8 +7,9 @@ import SignedOutLinks from './SignedOutLinks';
 
 const Navbar = () => {
   const isLogout = useSelector((state) => state.auth.isLogout);
+  const bool = window.localStorage.getItem('token');
   return (
-    isLogout ?
+    !bool && isLogout ?
       (<nav>
         <div className="nav-wrapper white">
             <div className="container">

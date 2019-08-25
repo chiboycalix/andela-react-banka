@@ -5,21 +5,23 @@ const initState = {
   isLoading: false,
   error: null,
   isLogout: true,
+  isLoggedIn: false,
 };
 
 const authReducer = (state = initState, action) => {
   switch (action.type) {
     case types.CREATE_USER_START:
-        return {
-          ...state,
-          isLoading: true,
-        };
+      return {
+        ...state,
+        isLoading: true,
+      };
     case types.CREATE_USER_SUCCESS:
       return {
         ...state,
         user: action.payload,
         isLoading: false,
-        isLogout: false
+        isLogout: false,
+        isLoggedIn: true,
       };
     case types.CREATE_USER_FAILURE:
       return {
@@ -48,20 +50,20 @@ const authReducer = (state = initState, action) => {
       };
 
     case types.LOGOUT_USER_START:
-        return {
-          ...state,
-          isLogout: true,
-        }
+      return {
+        ...state,
+        isLogout: true,
+      };
     case types.LOGOUT_USER_SUCCESS:
       return {
         ...state,
-        isLogout: false
-      }
+        isLogout: true,
+      };
     case types.LOGOUT_USER_FAILURE:
       return {
         ...state,
-        isLogout: false
-      }
+        isLogout: false,
+      };
     default:
       return state;
   }
