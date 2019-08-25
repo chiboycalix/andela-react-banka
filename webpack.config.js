@@ -1,5 +1,8 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const CLT_DIR = path.resolve(__dirname, 'build');
 const SRC_DIR = path.resolve(__dirname, 'src');
@@ -10,9 +13,9 @@ module.exports = {
   entry: [`${SRC_DIR}/index.js`, '@babel/polyfill'],
   devServer: {
     historyApiFallback: true,
-    host: '0.0.0.0',
+    // host: '0.0.0.0',
     compress: true,
-    port: 8081,
+    port: 8000,
     contentBase: './build',
   },
   output: {
