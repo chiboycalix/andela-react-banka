@@ -1,5 +1,10 @@
 {
-    "git.ignoreLimitWarning": true,
-    "editor.formatOnSave": true,
-    "prettier.eslintIntegration": true
+  "git.ignoreLimitWarning": true,
+  "editor.formatOnSave": true,
+  "prettier.eslintIntegration": true,
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnType": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.enable": true,
+  "prettier.singleQuote": true
 }

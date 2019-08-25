@@ -3,11 +3,11 @@ import { Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const ProtectedRoute = ({component: Component}, ...rest) => {
-  const isLogout = useSelector((state) => state.auth.isLogout);
+  const bool = window.localStorage.getItem('token');
   return (
     <Route {...rest} render={
       (props) => {
-        if (!isLogout) {
+        if (bool) {
           return <Component {...props} />
         }else {
           return <Redirect to={

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import Notifications from './Notifications';
 import './Dashboard.css';
 import AccountList from '../accounts/AccountList';

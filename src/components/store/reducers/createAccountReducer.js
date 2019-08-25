@@ -12,6 +12,7 @@ const createAccountReducer = (state = initState, action) => {
         ...state,
         isLoading: true,
       };
+
     case types.CREATE_ACCOUNT_SUCCESS:
       return {
         ...state,

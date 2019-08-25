@@ -1,21 +1,19 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
-const CLT_DIR = path.resolve(__dirname, 'client');
+const CLT_DIR = path.resolve(__dirname, 'build');
 const SRC_DIR = path.resolve(__dirname, 'src');
 
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
-  entry: [
-    `${SRC_DIR}/index.js`,
-    '@babel/polyfill',
-  ],
+  entry: [`${SRC_DIR}/index.js`, '@babel/polyfill'],
   devServer: {
     historyApiFallback: true,
     host: '0.0.0.0',
     compress: true,
-    port: 8082,
+    port: 8081,
+    contentBase: './build',
   },
   output: {
     path: `${CLT_DIR}/app`,

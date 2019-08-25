@@ -15,17 +15,17 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <ToastContainer autoClose={2500}/>
+          <ToastContainer autoClose={2500} />
           <Navbar />
           <Switch>
-            <Route exact path="/" component={HomePage}/>
-            <ProtectedRoute path="/account/:id" component={AccountDetails}/>
-            <ProtectedRoute path="/dashboard" component={Dashboard}/>
-            <ProtectedRoute path="/account" component={CreateAccounts}/>
-            <Route path="/signup" component={SignUp}/>
-            <Route path="/login" component={SignIn}/>
-            <Route path="/logout" component={HomePage}/>
-            <Route path="*" component={() => "404 not found"}/>
+            <Route exact path="/" component={HomePage} />
+            <ProtectedRoute path="/account/:id" component={AccountDetails} />
+            <ProtectedRoute path="/dashboard" component={Dashboard} />
+            <ProtectedRoute path="/account" component={CreateAccounts} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/login" component={SignIn} />
+            <Route path="/logout" component={HomePage} />
+            <Route path="*" component={() => '404 not found'} />
           </Switch>
         </div>
       </BrowserRouter>
