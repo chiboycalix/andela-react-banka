@@ -2,7 +2,8 @@ node_modules
 .nyc_output
 .coveralls.yml
 coverage
-.vscode
 .env
 build
 .vscode
+
+
