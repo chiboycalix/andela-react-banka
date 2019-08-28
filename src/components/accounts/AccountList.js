@@ -6,7 +6,7 @@ import { getAccounts } from '../store/actions/getAccountAction';
 class AccountList extends Component {
   state = {
     accounts: [],
-  }
+  };
   async componentDidMount() {
     const { fetchAccounts } = this.props;
     fetchAccounts();
@@ -14,24 +14,22 @@ class AccountList extends Component {
     this.setState({
       ...this.state,
       accounts: response.payload,
-    })
+    });
   }
 
   render() {
     return (
-      <div className="section">
-        { this.state.accounts && this.state.accounts.map((account) => {
-          return (
-            <AccountSummary account={account} key={account.id}/>
-          );
-          })
-        }
+      <div className="section" style={{ marginTop: '70px' }}>
+        {this.state.accounts &&
+          this.state.accounts.map(account => {
+            return <AccountSummary account={account} key={account.id} />;
+          })}
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     accounts: state.getAccounts,
   };
@@ -41,4 +39,7 @@ const mapDispatchToProps = dispatch => ({
   fetchAccounts: () => dispatch(getAccounts()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AccountList);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AccountList);
