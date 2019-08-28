@@ -9,6 +9,7 @@ import SignIn from './auth/SignIn';
 import SignUp from './auth/Signup';
 import CreateAccounts from './accounts/CreateAccounts';
 import ProtectedRoute from './ProtectedRoute';
+import Sidebar from './dashboard/Sidebar';
 
 class App extends Component {
   render() {

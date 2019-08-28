@@ -1,44 +1,61 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import InfiniteScroll from 'react-infinite-scroll-component';
 import Notifications from './Notifications';
+import '../../../node_modules/aos/dist/aos.css';
+import AOS from 'aos';
 import './Dashboard.css';
 import AccountList from '../accounts/AccountList';
 import Sidebar from './Sidebar';
 
-
 class Dashboard extends Component {
+  componentWillReceiveProps() {
+    AOS.refresh();
+  }
   render() {
+    AOS.init();
     return (
-        <div className="wrapper">
-           <Sidebar />
-            <div className="row">
-            <div className="col s12 m1">
-                </div>
-                <div className="col s12 m8">
-                <nav>
-                  <div className="nav-wrapper white">
-                      <ul id="nav-mobile" className="left hide-on-med-and-down">
-                        <li><NavLink to="/dashboard" className="black-text">Account List</NavLink></li>
-                        <li><NavLink to="/account" className="black-text">Account History</NavLink></li>
-                        <li><NavLink to="/logout" className="black-text">Bank Statement</NavLink></li>
-                    </ul>
-                  </div>
-                </nav>
-        <AccountList />
+      <div
+        className="wrapper"
+        style={{ padding: '0px 1px', position: 'absolute', top: '51.3px' }}
+      >
+        <Sidebar />
+        <div className="row">
+          <div className="col s12 m1"></div>
+          <div className="col s12 m8">
+            <nav style={{ position: 'fixed', zIndex: '10' }}>
+              <div className="nav-wrapper white">
+                <ul id="nav-mobile" className="left hide-on-med-and-down">
+                  <li>
+                    <NavLink to="/dashboard" className="black-text">
+                      Account List
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/account" className="black-text">
+                      Account History
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/logout" className="black-text">
+                      Bank Statement
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <AccountList />
+          </div>
+          <div className="col s12 m3 notifs">
+            <Notifications />
+          </div>
+        </div>
       </div>
-    <div className="col s12 m3 notifs">
-        <Notifications />
-    </div>
-  </div>
-</div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     accounts: state.create.accounts,
   };
