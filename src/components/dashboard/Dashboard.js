@@ -31,16 +31,6 @@ class Dashboard extends Component {
                       Account List
                     </NavLink>
                   </li>
-                  <li>
-                    <NavLink to="/account" className="black-text">
-                      Account History
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/logout" className="black-text">
-                      Bank Statement
-                    </NavLink>
-                  </li>
                 </ul>
               </div>
             </nav>
